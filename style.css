@@ -17,6 +17,7 @@ body {
     grid-template-areas:
         'side head'
         'side cont';
+    min-height: 100vh;
 }
 
 .sidebar {
@@ -31,6 +32,10 @@ body {
     grid-area: head;
     display: grid;
     grid-template-columns: 4fr 2fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas:
+        'up up'
+        'low low';
 }
 
 .content {
@@ -44,14 +49,110 @@ body {
         'project trend';
 }
 
+.title {
+    background-color: yellow;
+}
+
+.side-upper {
+    background-color: darkgreen;
+}
+
+.side-lower {
+    background-color: palevioletred;
+}
+
+.header-upper {
+    grid-area: up;
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    background-color: aquamarine;
+}
+
+.search-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+}
+
+.account-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+}
+
+.header-lower {
+    grid-area: low;
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+    background-color: cadetblue;
+}
+
+.user-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-color: salmon;
+    grid-template-areas:
+        'ava greet'
+        'ava usr';
+}
+
+.avatar {
+    grid-area: ava;
+}
+
+.greeting {
+    grid-area: greet;
+}
+
+.user {
+    grid-area: usr;
+}
+
+.button-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 .projects {
     grid-area: project;
+    background-color: darkgray;
+}
+
+.card-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .announcement {
     grid-area: announce;
+    background-color: darkorange;
 }
 
 .trending {
     grid-area: trend;
+    background-color: powderblue;
+}
+
+.trending-item {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        'img h5'
+        'img p';
+}
+
+.trending-item > img {
+    grid-area: img;
+}
+
+.trending-item > h5 {
+    grid-area: h5;
+    padding: 0;
+    margin: 0;
+}
+
+.trending-item > p {
+    grid-area: p;
+    padding: 0;
+    margin: 0;
 }
