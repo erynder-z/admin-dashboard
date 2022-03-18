@@ -215,6 +215,19 @@ body {
     display: grid;
     grid-template-columns: 7fr 1fr 1fr 1fr;
     justify-items: end;
+    grid-template-areas: '. star watch fork';
+}
+
+.star {
+    grid-area: star;
+}
+
+.watch {
+    grid-area: watch;
+}
+
+.fork {
+    grid-area: fork;
 }
 
 .right-side {
@@ -275,16 +288,131 @@ body {
     grid-area: img;
     height: 50px;
     width: 50px;
+    place-self: center;
+    margin-right: 0.5rem;
 }
 
 .trending-item > h5 {
     grid-area: h5;
     padding: 0;
     margin: 0;
+    align-self: flex-end;
 }
 
 .trending-item > p {
     grid-area: p;
-    padding: 0;
+    padding-top: 0.2rem;
     margin: 0;
+    font-size: small;
+}
+
+.space,
+.side-lower.item.tabswitch {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr 5fr;
+        grid-template-rows: repeat(1fr);
+        grid-template-areas:
+            'side head'
+            'side cont'
+            'side cont'
+            'side cont'
+            'side cont';
+    }
+
+    .sidebar {
+        grid-template-columns: 1fr;
+        min-height: 100vh;
+    }
+
+    .sidebar > div {
+        padding: 0;
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .side-upper.item,
+    .side-lower.item {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .title > span,
+    .side-upper.item > span,
+    .side-lower.item > span {
+        display: none;
+    }
+
+    .header {
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 1fr;
+        padding: 0.5rem;
+    }
+
+    .header-upper {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .header-lower {
+        grid-template-columns: 1fr;
+    }
+
+    .user-wrapper {
+        display: none;
+    }
+
+    .button-wrapper {
+        padding-bottom: 0;
+    }
+    .button-wrapper > button {
+        height: 1.5rem;
+        width: 90%;
+        font-weight: 400;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .card-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .card-main-icons {
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        grid-template-areas: 'star watch fork';
+    }
+
+    .space,
+    .side-lower.item.tabswitch {
+        display: block;
+    }
+
+    .tabswitch {
+        animation: pulse 2s linear infinite;
+    }
+
+    .right-side {
+        display: none;
+    }
+
+    @-webkit-keyframes "pulse" {
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+        50% {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.2);
+        }
+        100% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
 }
