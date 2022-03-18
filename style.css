@@ -13,123 +13,251 @@ body {
 .container {
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: auto;
+    grid-template-rows: 1fr 2fr 2fr 2fr;
     grid-template-areas:
         'side head'
+        'side cont'
+        'side cont'
+        'side cont'
         'side cont';
-    min-height: 100vh;
+    max-height: 100vh;
 }
 
 .sidebar {
-    background-color: blueviolet;
+    background-color: rgb(153, 129, 175);
     grid-area: side;
     display: grid;
     grid-template-rows: 1fr 3fr 4fr;
 }
 
 .header {
-    background-color: forestgreen;
     grid-area: head;
     display: grid;
-    grid-template-columns: 4fr 2fr;
-    grid-template-rows: 1fr 2fr;
+    grid-template-columns: 3fr 2fr;
     grid-template-areas:
         'up up'
         'low low';
 }
 
 .content {
-    background-color: tomato;
+    background-color: rgb(158, 153, 152);
     grid-area: cont;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-        'project announce'
-        'project trend';
+        'project project rightsd'
+        'project project rightsd';
+
+    padding: 0 1rem;
+    overflow-y: scroll;
 }
 
 .title {
-    background-color: yellow;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
 }
 
 .side-upper {
-    background-color: darkgreen;
+    display: grid;
+    align-items: center;
 }
 
 .side-lower {
-    background-color: palevioletred;
+    display: grid;
+    align-items: start;
+    grid-template-rows: 1fr 1fr 1fr 5fr;
+}
+
+.sidebar > div {
+    padding: 2rem;
+}
+
+.side-upper.item,
+.side-lower.item {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    height: 3rem;
 }
 
 .header-upper {
     grid-area: up;
     display: grid;
-    grid-template-columns: 5fr 2fr;
-    background-color: aquamarine;
+    grid-template-columns: 4fr 2fr;
+    padding: 1rem 2rem;
 }
 
 .search-wrapper {
     display: grid;
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: 1fr 9fr;
+    padding-right: 2rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.search {
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0.4rem 1rem;
 }
 
 .account-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
+    align-items: center;
+    justify-items: center;
+    padding-left: 2rem;
 }
 
+.avatar-small {
+    height: auto;
+    width: 3rem;
+}
+
+.account-wrapper > div {
+    font-weight: bold;
+    text-align: center;
+}
 .header-lower {
     grid-area: low;
     display: grid;
     grid-template-columns: 5fr 3fr;
-    background-color: cadetblue;
+    padding: 0 0.5rem 0.5rem 0.5rem;
 }
 
 .user-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 3fr 2fr;
     grid-template-rows: 1fr 1fr;
-    background-color: salmon;
     grid-template-areas:
         'ava greet'
         'ava usr';
+    align-items: center;
+    justify-items: center;
 }
 
-.avatar {
+.user-wrapper > * {
+    height: 1rem;
+}
+
+.user-wrapper > div {
+    justify-self: start;
+}
+
+.avatar-big {
     grid-area: ava;
+    height: 5rem;
+    width: auto;
 }
 
 .greeting {
     grid-area: greet;
+    align-self: center;
+    font-weight: bold;
 }
 
 .user {
     grid-area: usr;
+    font-weight: bold;
+    font-size: 1.2rem;
+    align-self: flex-start;
 }
 
 .button-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+    gap: 1rem;
+}
+
+.button-wrapper > button {
+    border-radius: 25px;
+    height: 2.5rem;
+    font-size: small;
+    font-weight: bold;
+    border: none;
+    background-color: blueviolet;
+    color: white;
 }
 
 .projects {
     grid-area: project;
-    background-color: darkgray;
 }
 
 .card-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    border-radius: 20px;
 }
 
-.announcement {
+.card {
+    display: grid;
+    grid-template-columns: 0.2fr 9fr;
+}
+
+.card-side {
+    background-color: blue;
+    border-radius: 20px 0 0 20px;
+}
+
+.card-main {
+    background-color: antiquewhite;
+    padding: 1rem;
+    border-radius: 0 5px 5px 0;
+}
+
+.card-main-icons {
+    display: grid;
+    grid-template-columns: 7fr 1fr 1fr 1fr;
+    justify-items: end;
+}
+
+.right-side {
+    grid-area: rightsd;
+}
+
+.announcements {
     grid-area: announce;
-    background-color: darkorange;
+}
+
+.announcements > h3,
+.trending > h3 {
+    padding: 0 1rem;
+}
+
+.announcements-wrapper {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: antiquewhite;
+    border-radius: 5px;
+}
+
+.announcement-card {
+    font-size: small;
+}
+
+.announcement-card > h4 {
+    margin: 0;
+}
+
+.announcement-card > p {
+    margin-top: 0;
 }
 
 .trending {
     grid-area: trend;
-    background-color: powderblue;
+}
+
+.trending-wrapper {
+    background-color: antiquewhite;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
 }
 
 .trending-item {
@@ -139,10 +267,14 @@ body {
     grid-template-areas:
         'img h5'
         'img p';
+    padding: 0 1rem;
+    margin: 1rem 0;
 }
 
 .trending-item > img {
     grid-area: img;
+    height: 50px;
+    width: 50px;
 }
 
 .trending-item > h5 {
