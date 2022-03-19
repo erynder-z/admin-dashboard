@@ -1,3 +1,11 @@
+:root {
+    --sidebar: #0c4a6e;
+    --header: #075985;
+    --contentBack: #0369a1;
+    --card: #f0f9ff;
+    --button: #0284c7;
+}
+
 *,
 *::before,
 *::after {
@@ -21,16 +29,18 @@ body {
         'side cont'
         'side cont';
     max-height: 100vh;
+    color: whitesmoke;
 }
 
 .sidebar {
-    background-color: rgb(153, 129, 175);
+    background-color: var(--sidebar);
     grid-area: side;
     display: grid;
     grid-template-rows: 1fr 3fr 4fr;
 }
 
 .header {
+    background-color: var(--header);
     grid-area: head;
     display: grid;
     grid-template-columns: 3fr 2fr;
@@ -40,7 +50,8 @@ body {
 }
 
 .content {
-    background-color: rgb(158, 153, 152);
+    background-color: var(--contentBack);
+    color: whitesmoke;
     grid-area: cont;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -180,7 +191,7 @@ body {
     font-size: small;
     font-weight: bold;
     border: none;
-    background-color: blueviolet;
+    background-color: var(--button);
     color: white;
 }
 
@@ -198,15 +209,16 @@ body {
 .card {
     display: grid;
     grid-template-columns: 0.2fr 9fr;
+    color: black;
 }
 
 .card-side {
-    background-color: blue;
+    background-color: #ffc300;
     border-radius: 20px 0 0 20px;
 }
 
 .card-main {
-    background-color: antiquewhite;
+    background-color: var(--card);
     padding: 1rem;
     border-radius: 0 5px 5px 0;
 }
@@ -236,17 +248,19 @@ body {
 
 .announcements {
     grid-area: announce;
+    color: black;
 }
 
 .announcements > h3,
 .trending > h3 {
     padding: 0 1rem;
+    color: whitesmoke;
 }
 
 .announcements-wrapper {
     margin: 1rem;
     padding: 1rem;
-    background-color: antiquewhite;
+    background-color: var(--card);
     border-radius: 5px;
 }
 
@@ -264,10 +278,11 @@ body {
 
 .trending {
     grid-area: trend;
+    color: black;
 }
 
 .trending-wrapper {
-    background-color: antiquewhite;
+    background-color: var(--card);
     margin: 1rem;
     padding: 1rem;
     border-radius: 5px;
