@@ -344,13 +344,17 @@ body {
 
     .sidebar {
         grid-template-columns: 1fr;
-        min-height: 100vh;
+        max-height: 100vh;
     }
 
     .sidebar > div {
         padding: 0;
         grid-template-columns: 1fr;
         justify-items: center;
+    }
+
+    .side-lower {
+        grid-template-rows: 1fr 1fr 3fr;
     }
 
     .side-upper.item,
